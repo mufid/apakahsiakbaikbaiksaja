@@ -4,7 +4,7 @@
   , "private": false
   , "dependencies": {
   	  "node"   : "0.6.18"
-    , "express": ""
+    , "express": "2.5.8"
     , "jade": ">= 0.0.1"
     , "ejs" : ""
   }
