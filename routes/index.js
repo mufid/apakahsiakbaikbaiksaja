@@ -4,10 +4,11 @@
  */
 
 exports.index = function(req, res){
-  //res.send("Sebentar... kita lagi ngecek..");
-  //setTimeout(function() { res.send("... masih ngecek.."); }, 2000);
-  //setTimeout(function() { res.send("... kayanya beneran down nih.."); }, 9000);
-  //setTimeout(function() { res.send("... ooppsss, ini terlalu lama.."); }, 15000);
+  //res.set('Content-Type', 'text/html');
+  // res.send(new Buffer("Sebentar... kita lagi ngecek.."));
+  // setTimeout(function() { res.send( new Buffer ("... masih ngecek..")); }, 2000);
+  // setTimeout(function() { res.send( new Buffer("... kayanya beneran down nih..")); }, 9000);
+  // setTimeout(function() { res.send( new Buffer("... ooppsss, ini terlalu lama..")); }, 15000);
   var gagal = {
   	title : "Uuupppsss! Sepertinya semua orang memang gak bisa!",
   	penjelasan : "Sepertinya semua orang kesulitan mengakses SIAK."
