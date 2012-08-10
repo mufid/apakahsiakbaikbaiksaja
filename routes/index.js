@@ -4,6 +4,10 @@
  */
 
 exports.index = function(req, res){
+  //res.send("Sebentar... kita lagi ngecek..");
+  //setTimeout(function() { res.send("... masih ngecek.."); }, 2000);
+  //setTimeout(function() { res.send("... kayanya beneran down nih.."); }, 9000);
+  //setTimeout(function() { res.send("... ooppsss, ini terlalu lama.."); }, 15000);
   var gagal = {
   	title : "Uuupppsss! Sepertinya semua orang memang gak bisa!",
   	penjelasan : "Sepertinya semua orang kesulitan mengakses SIAK."
@@ -25,7 +29,12 @@ exports.index = function(req, res){
 	};
 
 	var getTimeDiff = function() {
-		return (((new Date().getTime() - waktu_awal) / 1000) + " detik");
+		var waktunya = (((new Date().getTime() - waktu_awal) / 1000));
+		var stringnya = waktunya + " detik. ";
+		if (waktunya > 5) {
+			stringnya += " Dan itu sangat lama. Berpotensi servernya down!";
+		}
+		return stringnya;
 	}
 
 	var req2 = https.get(options, function(res2) {
@@ -50,7 +59,7 @@ exports.index = function(req, res){
 
 	setTimeout(function() {
 	  objek_render = gagal;
-	  objek_render.waktu = "Request Timed Out";
+	  objek_render.waktu = "Request Timed Out. Server down. Unable to retrieve server information of academic.ui.ac.id over SSL.";
 	  res.render("index", objek_render);		
-	})
+	}, 20000);
 };
